@@ -144,11 +144,11 @@ export type DiscordChannel = TextBasedDiscordChannel | StageChannel | VoiceChann
  */
 export interface InternationalizationContext {
 	/** The {@link Guild} object to fetch the preferred language for, or `null` if the language is to be fetched in a DM. */
-	guild: Guild | null;
+	guild?: Guild | null;
 	/** The {@link DiscordChannel} object to fetch the preferred language for. */
-	channel: DiscordChannel | null;
+	channel?: DiscordChannel | null;
 	/** The user to fetch the preferred language for. */
-	user: User | null;
+	user?: User | null;
 	interactionGuildLocale?: Interaction['guildLocale'];
 	interactionLocale?: Interaction['locale'];
 }
