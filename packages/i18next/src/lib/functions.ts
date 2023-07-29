@@ -8,7 +8,8 @@ import {
 	Message,
 	MessageComponentInteraction,
 	type APIApplicationCommandOptionChoice,
-	type LocaleString
+	type LocaleString,
+	User
 } from 'discord.js';
 import type { TFuncKey, TOptions } from 'i18next';
 import type {
@@ -45,6 +46,10 @@ export function fetchLanguage(target: Target): Promise<string> {
 			interactionGuildLocale: target.guildLocale,
 			interactionLocale: target.locale
 		});
+	}
+
+	if (target instanceof User) {
+		return resolveLanguage({ user: target, channel: null, guild: null });
 	}
 
 	// Handle Message:
